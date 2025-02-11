@@ -11,7 +11,7 @@ interface StockResponse {
   [key: string]: any;
 }
 
-/* First let's define the server */
+// First let's define the server 
 const server = new Server({
   name: "mcp-server-demo-1",
   version: "1.0.0",
@@ -22,7 +22,7 @@ const server = new Server({
   }
 });
 
-/* Let's define our tools that we want the LLM to be able to call */
+// Let's define our tools that we want the LLM to be able to call 
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   return { tools: [{
     name: "get_stock_information",
@@ -38,7 +38,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
  };
 });
 
-/* Now let's define what will happen when we call each tool */
+// Now let's define what will happen when we call each tool 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   // Add your tools in here
   if (request.params.name === "get_stock_information") {
@@ -70,13 +70,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       };
     }
   }
-  /* You could add more resources here by adding more if statements */
+  // You could add more resources here by adding more if statements 
   
   throw new McpError(ErrorCode.MethodNotFound, "Tool not found");
 
 });
 
-/* API Request Function */
+// API Request Function
 async function makeRapidApiRequest(stockTicker: string): Promise<StockResponse> {
   const url = new URL('https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/modules');
   url.searchParams.append('ticker', stockTicker);
@@ -101,7 +101,7 @@ async function makeRapidApiRequest(stockTicker: string): Promise<StockResponse> 
   }
 }
 
-/* Run our server */
+// Run our server 
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
@@ -114,8 +114,8 @@ main().catch((error) => {
 });
 
 
-/* Add your configuration to your MCP configuration file */
-/* 
+/** Add your configuration to your MCP configuration file 
+
 "stock": {
   "command": "node",
   "args": ["users/mcp-servers/mcp-server-demo-1/build/demo.js"],
@@ -125,6 +125,5 @@ main().catch((error) => {
   "disabled": false,
   "autoApprove": []
 }
-*/
 
-/* Quit and restart your chosen chat client and then test it out! */
+Quit and restart your chosen chat client and then test it out! */

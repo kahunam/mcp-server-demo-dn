@@ -11,7 +11,7 @@ interface ExampleResponse {
   [key: string]: any; // Example: Used for API response data like stock market information
 }
 
-/* First let's define the server */
+// First let's define the server 
 const server = new Server({
   name: "example-mcp-server", // Example: "stock-server" or "weather-server"
   version: "1.0.0",
@@ -22,7 +22,7 @@ const server = new Server({
   }
 });
 
-/* Let's define our tools that we want the LLM to be able to call */
+// Let's define our tools that we want the LLM to be able to call 
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   return { tools: [{
     name: "get_data", // Example: "get_stock_information" or "get_weather_forecast"
@@ -38,7 +38,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
  };
 });
 
-/* Now let's define what will happen when we call our tools */
+// Now let's define what will happen when we call our tools 
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   if (request.params.name === "get_data") { // Example: "get_stock_information" or "get_weather_forecast"
     const args = request.params.arguments as { parameter: string }; // Example: { stockTicker: string }
@@ -103,7 +103,7 @@ async function makeApiRequest(parameter: string): Promise<ExampleResponse> {
   }
 }
 
-/* A function to run our server */
+// A function to run our server 
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
@@ -115,10 +115,10 @@ main().catch((error) => {
   process.exit(1);
 });
 
-/* Install any required packages and run the build process */
+/** Install any required packages and run the build process
 
-/* Add your configuration to your MCP configuration file */
-/* Example configuration:
+Add your configuration to your MCP configuration file 
+Example configuration:
 {
   "your-server-name": {
     "command": "node",
@@ -130,6 +130,5 @@ main().catch((error) => {
     "autoApprove": []
   }
 }
-*/
 
-/* Quit and restart your chosen chat client and then test it out! */
+Quit and restart your chosen chat client and then test it out! */
