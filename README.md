@@ -41,6 +41,18 @@
 	2.	Save the configuration file for your cloud desktop or 5ier setup.
 	3.	Restart the chat application to apply the changes.
 
+	```
+	"stock": {
+  "command": "node",
+  "args": ["users/mcp-servers/mcp-server-demo-1/build/demo.js"],
+  "env": {
+    "RAPIDAPI_KEY": "XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX-XXX"
+  },
+  "disabled": false,
+  "autoApprove": []
+}
+```
+
 ## Step 8: Test Your Setup
 	•	Launch a chat and verify that your server is working as expected.
 
