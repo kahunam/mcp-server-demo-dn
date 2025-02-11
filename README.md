@@ -45,6 +45,7 @@
    - Ensure the command is correct.
    - Insert your API key as an ENV value.
 2. Save the configuration file for your cloud desktop or 5ier setup.
+- ~/Library/Application Support
 3. Restart the chat application to apply the changes.
 
 ```json
