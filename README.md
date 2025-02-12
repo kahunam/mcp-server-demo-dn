@@ -4,7 +4,6 @@
 
 1. Create a folder on your device where you'll store your MCP servers to stay organized.
 2. Clone the repository into that folder.
-   - Repository Link: *(to be added later)*
 
 ## Step 2: Review the Source Files
 
